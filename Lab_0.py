@@ -29,23 +29,18 @@ def ejercicio1_4(N):
         
 def ejercicio2_1(data):
     df= pd.DataFrame(data)
-    Minima = 999999
-    Maxima = 0
-    Media = 0
-    i = 0
-    for nota in df['Notas']:
-        i += 1
-        if(nota > Maxima):
-            Maxima = nota
-        if(nota < Minima):
-            Minima = nota
-        Media += nota
-    Desviacion= st.stdev(df['Notas'])
-    print("Nota Minima: ",Minima)
-    print("Nota Maxima: ",Maxima)
-    print("Nota Media: ",Media/i)
-    print("Desviacion tipica: ",Desviacion)
+    Minima = df['Notas'].min()
+    Maxima = df['Notas'].max()
+    Media = df['Notas'].mean()
+    Desviacion = df['Notas'].std()  # `std()` usa n-1 (muestra)
     
+    # Retornar una serie con los resultados
+    return pd.Series({
+        "Nota Minima": Minima,
+        "Nota Maxima": Maxima,
+        "Nota Media": Media,
+        "Desviacion tipica": Desviacion
+    })
     
     
 #ejercicio1_1()
