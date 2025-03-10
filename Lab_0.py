@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+from scipy.io.wavfile import read # Libreria para archivos de audio en formato wav.
+from IPython.display import Audio # Libreria para escuchar un audio
 def ejercicio1_1():
     arr_1d = np.linspace(3,12,4)  # (inicio, fin, numero de muestras)
     print("Arreglo usando linspace: ", arr_1d)
@@ -49,6 +51,12 @@ def ejercicio2_2(directorio):
             df_return.append(df_from_xlsx.iloc[:, i])
     return df_return
             
+def ejercicio_3(directorio, t1, t2):
+    fs, x = read(directorio)
+    inicio = int(t1*fs)
+    final = int(t2*fs)
+    audio_salida
+    Audio(x, rate=fs)
 
     
 #ejercicio1_1()
@@ -67,3 +75,5 @@ def ejercicio2_2(directorio):
 #print(ejercicio2_1(data))
 
 #print(ejercicio2_2("dataframe_lab0.xlsx"))
+
+ejercicio_3("audio.wav",2, 3)
